@@ -1,0 +1,6 @@
+framework module Pods_BL_DeenSDK_pod_testing {
+  umbrella header "Pods-BL_DeenSDK_pod_testing-umbrella.h"
+
+  export *
+  module * { export * }
+}

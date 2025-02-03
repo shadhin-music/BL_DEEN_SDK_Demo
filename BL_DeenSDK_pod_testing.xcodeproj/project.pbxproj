@@ -6,8 +6,15 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		C44837DBD1EF97B8FB5B4D35 /* Pods_BL_DeenSDK_pod_testing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 372B39DF85061CB593A914D0 /* Pods_BL_DeenSDK_pod_testing.framework */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
+		372B39DF85061CB593A914D0 /* Pods_BL_DeenSDK_pod_testing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BL_DeenSDK_pod_testing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FCBA03997C032F38209B989 /* Pods-BL_DeenSDK_pod_testing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BL_DeenSDK_pod_testing.release.xcconfig"; path = "Target Support Files/Pods-BL_DeenSDK_pod_testing/Pods-BL_DeenSDK_pod_testing.release.xcconfig"; sourceTree = "<group>"; };
 		74B007FB2D50DE4E005F2EC5 /* BL_DeenSDK_pod_testing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BL_DeenSDK_pod_testing.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D06652901B9A060D06CD7090 /* Pods-BL_DeenSDK_pod_testing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BL_DeenSDK_pod_testing.debug.xcconfig"; path = "Target Support Files/Pods-BL_DeenSDK_pod_testing/Pods-BL_DeenSDK_pod_testing.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -36,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C44837DBD1EF97B8FB5B4D35 /* Pods_BL_DeenSDK_pod_testing.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -47,6 +55,8 @@
 			children = (
 				74B007FD2D50DE4E005F2EC5 /* BL_DeenSDK_pod_testing */,
 				74B007FC2D50DE4E005F2EC5 /* Products */,
+				B08E4F82C7A77DE5B955A0E2 /* Pods */,
+				8A5535E2D6B9EDE4CDDE6C5D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,6 +68,23 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		8A5535E2D6B9EDE4CDDE6C5D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				372B39DF85061CB593A914D0 /* Pods_BL_DeenSDK_pod_testing.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B08E4F82C7A77DE5B955A0E2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D06652901B9A060D06CD7090 /* Pods-BL_DeenSDK_pod_testing.debug.xcconfig */,
+				4FCBA03997C032F38209B989 /* Pods-BL_DeenSDK_pod_testing.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -65,9 +92,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 74B0080E2D50DE50005F2EC5 /* Build configuration list for PBXNativeTarget "BL_DeenSDK_pod_testing" */;
 			buildPhases = (
+				47C882BAA744CA95C56E05D8 /* [CP] Check Pods Manifest.lock */,
 				74B007F72D50DE4E005F2EC5 /* Sources */,
 				74B007F82D50DE4E005F2EC5 /* Frameworks */,
 				74B007F92D50DE4E005F2EC5 /* Resources */,
+				8995B6E83BD15FFF025D0270 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -77,8 +106,6 @@
 				74B007FD2D50DE4E005F2EC5 /* BL_DeenSDK_pod_testing */,
 			);
 			name = BL_DeenSDK_pod_testing;
-			packageProductDependencies = (
-			);
 			productName = BL_DeenSDK_pod_testing;
 			productReference = 74B007FB2D50DE4E005F2EC5 /* BL_DeenSDK_pod_testing.app */;
 			productType = "com.apple.product-type.application";
@@ -127,6 +154,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		47C882BAA744CA95C56E05D8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BL_DeenSDK_pod_testing-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8995B6E83BD15FFF025D0270 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BL_DeenSDK_pod_testing/Pods-BL_DeenSDK_pod_testing-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BL_DeenSDK_pod_testing/Pods-BL_DeenSDK_pod_testing-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BL_DeenSDK_pod_testing/Pods-BL_DeenSDK_pod_testing-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		74B007F72D50DE4E005F2EC5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -140,12 +209,14 @@
 /* Begin XCBuildConfiguration section */
 		74B0080F2D50DE50005F2EC5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D06652901B9A060D06CD7090 /* Pods-BL_DeenSDK_pod_testing.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2Q7Q4L46FQ;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BL_DeenSDK_pod_testing/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -168,12 +239,14 @@
 		};
 		74B008102D50DE50005F2EC5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4FCBA03997C032F38209B989 /* Pods-BL_DeenSDK_pod_testing.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2Q7Q4L46FQ;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BL_DeenSDK_pod_testing/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

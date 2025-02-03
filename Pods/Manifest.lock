@@ -1,0 +1,16 @@
+PODS:
+  - DeenIslamSDK (1.0.2)
+
+DEPENDENCIES:
+  - DeenIslamSDK (= 1.0.2)
+
+SPEC REPOS:
+  trunk:
+    - DeenIslamSDK
+
+SPEC CHECKSUMS:
+  DeenIslamSDK: 6e9f6cc6a1781cce0ffa6b18f24ebdc421e13a82
+
+PODFILE CHECKSUM: 0e6b458afa7ef6ca91607427ba955297059676ec
+
+COCOAPODS: 1.16.2
