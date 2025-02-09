@@ -6,6 +6,6 @@ target 'BL_DeenSDK_pod_testing' do
   use_frameworks!
 
   # Pods for BL_DeenSDK_pod_testing
-pod 'DeenIslamSDK', '1.0.2'
+pod 'DeenIslamSDK'
 
 end

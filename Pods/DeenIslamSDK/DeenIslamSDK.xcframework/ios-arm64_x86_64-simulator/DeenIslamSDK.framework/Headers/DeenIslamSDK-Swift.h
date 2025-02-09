@@ -410,43 +410,6 @@ SWIFT_CLASS("_TtC12DeenIslamSDK8BaseView")
 
 
 
-SWIFT_CLASS("_TtC12DeenIslamSDK10CustomView")
-@interface CustomView : UIView
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
-- (void)didMoveToSuperview;
-@end
-
-
-@class UIViewController;
-@class UIPresentationController;
-
-@interface CustomView (SWIFT_EXTENSION(DeenIslamSDK)) <UIViewControllerTransitioningDelegate>
-- (UIPresentationController * _Nullable)presentationControllerForPresentedViewController:(UIViewController * _Nonnull)presented presentingViewController:(UIViewController * _Nullable)presenting sourceViewController:(UIViewController * _Nonnull)source SWIFT_WARN_UNUSED_RESULT;
-@end
-
-
-@class UICollectionView;
-@class NSIndexPath;
-@class UICollectionViewCell;
-@class UICollectionViewLayout;
-
-@interface CustomView (SWIFT_EXTENSION(DeenIslamSDK)) <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
-- (NSInteger)collectionView:(UICollectionView * _Nonnull)collectionView numberOfItemsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
-- (UICollectionViewCell * _Nonnull)collectionView:(UICollectionView * _Nonnull)collectionView cellForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
-- (void)collectionView:(UICollectionView * _Nonnull)collectionView didSelectItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
-- (CGSize)collectionView:(UICollectionView * _Nonnull)collectionView layout:(UICollectionViewLayout * _Nonnull)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
-- (UIEdgeInsets)collectionView:(UICollectionView * _Nonnull)collectionView layout:(UICollectionViewLayout * _Nonnull)collectionViewLayout insetForSectionAtIndex:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
-- (CGFloat)collectionView:(UICollectionView * _Nonnull)collectionView layout:(UICollectionViewLayout * _Nonnull)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
-- (CGFloat)collectionView:(UICollectionView * _Nonnull)collectionView layout:(UICollectionViewLayout * _Nonnull)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
-@end
-
-
-SWIFT_CLASS("_TtC12DeenIslamSDK19DeenIslamCustomView")
-@interface DeenIslamCustomView : UIView
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
-@end
 
 
 SWIFT_CLASS("_TtC12DeenIslamSDK14DeenIslamGPSDK")
@@ -531,6 +494,7 @@ SWIFT_CLASS("_TtC12DeenIslamSDK8DropDown")
 @end
 
 @class UITableView;
+@class NSIndexPath;
 
 @interface DropDown (SWIFT_EXTENSION(DeenIslamSDK)) <UITableViewDelegate>
 - (void)tableView:(UITableView * _Nonnull)tableView didSelectRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
@@ -620,6 +584,7 @@ SWIFT_CLASS("_TtC12DeenIslamSDK12IQInvocation") SWIFT_AVAILABILITY(ios_app_exten
 enum IQPreviousNextDisplayMode : NSInteger;
 @class UIFont;
 @class UITapGestureRecognizer;
+@class UIViewController;
 
 /// Codeless drop-in universal library allows to prevent issues of keyboard sliding up and cover UITextField/UITextView. Neither need to write any code nor any setup required and much more. A generic version of KeyboardManagement. https://developer.apple.com/library/ios/documentation/StringsTextFonts/Conceptual/TextAndWebiPhoneOS/KeyboardManagement/KeyboardManagement.html
 SWIFT_CLASS("_TtC12DeenIslamSDK17IQKeyboardManager") SWIFT_AVAILABILITY(ios_app_extension,unavailable)
@@ -727,13 +692,6 @@ SWIFT_AVAILABILITY(ios_app_extension,unavailable)
 
 SWIFT_AVAILABILITY(ios_app_extension,unavailable)
 @interface IQKeyboardManager (SWIFT_EXTENSION(DeenIslamSDK))
-/// reloadInputViews to reload toolbar buttons enable/disable state on the fly Enhancement ID #434.
-- (void)reloadInputViews;
-@end
-
-
-SWIFT_AVAILABILITY(ios_app_extension,unavailable)
-@interface IQKeyboardManager (SWIFT_EXTENSION(DeenIslamSDK))
 @property (nonatomic) BOOL enableDebugging;
 /// @warning Use below methods to completely enable/disable notifications registered by library internally.
 /// Please keep in mind that library is totally dependent on NSNotification of UITextField, UITextField, Keyboard etc.
@@ -741,6 +699,13 @@ SWIFT_AVAILABILITY(ios_app_extension,unavailable)
 /// You should use below methods at your own risk.
 - (void)registerAllNotifications;
 - (void)unregisterAllNotifications;
+@end
+
+
+SWIFT_AVAILABILITY(ios_app_extension,unavailable)
+@interface IQKeyboardManager (SWIFT_EXTENSION(DeenIslamSDK))
+/// reloadInputViews to reload toolbar buttons enable/disable state on the fly Enhancement ID #434.
+- (void)reloadInputViews;
 @end
 
 
@@ -1001,7 +966,6 @@ SWIFT_AVAILABILITY(ios_app_extension,unavailable)
 
 
 
-
 SWIFT_AVAILABILITY(ios_app_extension,unavailable)
 @interface UIView (SWIFT_EXTENSION(DeenIslamSDK))
 /// To set customized distance from keyboard for textField/textView. Can’t be less than zero
@@ -1066,6 +1030,7 @@ SWIFT_AVAILABILITY(ios_app_extension,unavailable)
 
 
 
+
 SWIFT_AVAILABILITY(ios_app_extension,unavailable)
 @interface UIViewController (SWIFT_EXTENSION(DeenIslamSDK))
 /// This method is provided to override by viewController’s if the library lifts a viewController which you doesn’t want to lift . This may happen if you have implemented side menu feature in your app and the library try to lift the side menu controller. Overriding this method in side menu class to return correct controller should fix the problem.
@@ -1074,6 +1039,7 @@ SWIFT_AVAILABILITY(ios_app_extension,unavailable)
 /// @deprecated    Due to change in core-logic of handling distance between textField and keyboard distance, this layout contraint tweak is no longer needed and things will just work out of the box regardless of constraint pinned with safeArea/layoutGuide/superview
 @property (nonatomic, strong) IBOutlet NSLayoutConstraint * _Nullable IQLayoutGuideConstraint SWIFT_DEPRECATED_MSG("Due to change in core-logic of handling distance between textField and keyboard distance, this layout contraint tweak is no longer needed and things will just work out of the box regardless of constraint pinned with safeArea/layoutGuide/superview.");
 @end
+
 
 
 
@@ -1685,43 +1651,6 @@ SWIFT_CLASS("_TtC12DeenIslamSDK8BaseView")
 
 
 
-SWIFT_CLASS("_TtC12DeenIslamSDK10CustomView")
-@interface CustomView : UIView
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
-- (void)didMoveToSuperview;
-@end
-
-
-@class UIViewController;
-@class UIPresentationController;
-
-@interface CustomView (SWIFT_EXTENSION(DeenIslamSDK)) <UIViewControllerTransitioningDelegate>
-- (UIPresentationController * _Nullable)presentationControllerForPresentedViewController:(UIViewController * _Nonnull)presented presentingViewController:(UIViewController * _Nullable)presenting sourceViewController:(UIViewController * _Nonnull)source SWIFT_WARN_UNUSED_RESULT;
-@end
-
-
-@class UICollectionView;
-@class NSIndexPath;
-@class UICollectionViewCell;
-@class UICollectionViewLayout;
-
-@interface CustomView (SWIFT_EXTENSION(DeenIslamSDK)) <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
-- (NSInteger)collectionView:(UICollectionView * _Nonnull)collectionView numberOfItemsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
-- (UICollectionViewCell * _Nonnull)collectionView:(UICollectionView * _Nonnull)collectionView cellForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
-- (void)collectionView:(UICollectionView * _Nonnull)collectionView didSelectItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
-- (CGSize)collectionView:(UICollectionView * _Nonnull)collectionView layout:(UICollectionViewLayout * _Nonnull)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
-- (UIEdgeInsets)collectionView:(UICollectionView * _Nonnull)collectionView layout:(UICollectionViewLayout * _Nonnull)collectionViewLayout insetForSectionAtIndex:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
-- (CGFloat)collectionView:(UICollectionView * _Nonnull)collectionView layout:(UICollectionViewLayout * _Nonnull)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
-- (CGFloat)collectionView:(UICollectionView * _Nonnull)collectionView layout:(UICollectionViewLayout * _Nonnull)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
-@end
-
-
-SWIFT_CLASS("_TtC12DeenIslamSDK19DeenIslamCustomView")
-@interface DeenIslamCustomView : UIView
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
-@end
 
 
 SWIFT_CLASS("_TtC12DeenIslamSDK14DeenIslamGPSDK")
@@ -1806,6 +1735,7 @@ SWIFT_CLASS("_TtC12DeenIslamSDK8DropDown")
 @end
 
 @class UITableView;
+@class NSIndexPath;
 
 @interface DropDown (SWIFT_EXTENSION(DeenIslamSDK)) <UITableViewDelegate>
 - (void)tableView:(UITableView * _Nonnull)tableView didSelectRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
@@ -1895,6 +1825,7 @@ SWIFT_CLASS("_TtC12DeenIslamSDK12IQInvocation") SWIFT_AVAILABILITY(ios_app_exten
 enum IQPreviousNextDisplayMode : NSInteger;
 @class UIFont;
 @class UITapGestureRecognizer;
+@class UIViewController;
 
 /// Codeless drop-in universal library allows to prevent issues of keyboard sliding up and cover UITextField/UITextView. Neither need to write any code nor any setup required and much more. A generic version of KeyboardManagement. https://developer.apple.com/library/ios/documentation/StringsTextFonts/Conceptual/TextAndWebiPhoneOS/KeyboardManagement/KeyboardManagement.html
 SWIFT_CLASS("_TtC12DeenIslamSDK17IQKeyboardManager") SWIFT_AVAILABILITY(ios_app_extension,unavailable)
@@ -2002,13 +1933,6 @@ SWIFT_AVAILABILITY(ios_app_extension,unavailable)
 
 SWIFT_AVAILABILITY(ios_app_extension,unavailable)
 @interface IQKeyboardManager (SWIFT_EXTENSION(DeenIslamSDK))
-/// reloadInputViews to reload toolbar buttons enable/disable state on the fly Enhancement ID #434.
-- (void)reloadInputViews;
-@end
-
-
-SWIFT_AVAILABILITY(ios_app_extension,unavailable)
-@interface IQKeyboardManager (SWIFT_EXTENSION(DeenIslamSDK))
 @property (nonatomic) BOOL enableDebugging;
 /// @warning Use below methods to completely enable/disable notifications registered by library internally.
 /// Please keep in mind that library is totally dependent on NSNotification of UITextField, UITextField, Keyboard etc.
@@ -2016,6 +1940,13 @@ SWIFT_AVAILABILITY(ios_app_extension,unavailable)
 /// You should use below methods at your own risk.
 - (void)registerAllNotifications;
 - (void)unregisterAllNotifications;
+@end
+
+
+SWIFT_AVAILABILITY(ios_app_extension,unavailable)
+@interface IQKeyboardManager (SWIFT_EXTENSION(DeenIslamSDK))
+/// reloadInputViews to reload toolbar buttons enable/disable state on the fly Enhancement ID #434.
+- (void)reloadInputViews;
 @end
 
 
@@ -2276,7 +2207,6 @@ SWIFT_AVAILABILITY(ios_app_extension,unavailable)
 
 
 
-
 SWIFT_AVAILABILITY(ios_app_extension,unavailable)
 @interface UIView (SWIFT_EXTENSION(DeenIslamSDK))
 /// To set customized distance from keyboard for textField/textView. Can’t be less than zero
@@ -2341,6 +2271,7 @@ SWIFT_AVAILABILITY(ios_app_extension,unavailable)
 
 
 
+
 SWIFT_AVAILABILITY(ios_app_extension,unavailable)
 @interface UIViewController (SWIFT_EXTENSION(DeenIslamSDK))
 /// This method is provided to override by viewController’s if the library lifts a viewController which you doesn’t want to lift . This may happen if you have implemented side menu feature in your app and the library try to lift the side menu controller. Overriding this method in side menu class to return correct controller should fix the problem.
@@ -2349,6 +2280,7 @@ SWIFT_AVAILABILITY(ios_app_extension,unavailable)
 /// @deprecated    Due to change in core-logic of handling distance between textField and keyboard distance, this layout contraint tweak is no longer needed and things will just work out of the box regardless of constraint pinned with safeArea/layoutGuide/superview
 @property (nonatomic, strong) IBOutlet NSLayoutConstraint * _Nullable IQLayoutGuideConstraint SWIFT_DEPRECATED_MSG("Due to change in core-logic of handling distance between textField and keyboard distance, this layout contraint tweak is no longer needed and things will just work out of the box regardless of constraint pinned with safeArea/layoutGuide/superview.");
 @end
+
 
 
 
